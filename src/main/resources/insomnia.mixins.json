@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.github.dylanxyz.insomnia.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "insomnia.refmap.json",
+  "mixins": [
+    "MixinEMIApi"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
