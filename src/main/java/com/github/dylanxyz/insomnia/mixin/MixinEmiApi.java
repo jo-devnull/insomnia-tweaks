@@ -1,6 +1,5 @@
 package com.github.dylanxyz.insomnia.mixin;
 
-import com.github.dylanxyz.insomnia.Insomnia;
 import dev.emi.emi.VanillaPlugin;
 import dev.emi.emi.api.EmiApi;
 import dev.emi.emi.api.recipe.EmiRecipe;
@@ -18,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static dev.emi.emi.api.EmiApi.getRecipeManager;
 
 @Mixin(EmiApi.class)
-public class MixinEMIApi
+public class MixinEmiApi
 {
     @Inject(method = "displayRecipes", at = @At("HEAD"), remap = false, cancellable = true)
     private static void insomnia$displayRecipes(EmiIngredient stack, CallbackInfo ci) {
