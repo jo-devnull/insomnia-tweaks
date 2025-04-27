@@ -1,4 +1,4 @@
-package com.github.dylanxyz.insomnia.mixin;
+package com.github.dylanxyz.insomnia.mixin.emi;
 
 import dev.emi.emi.EmiPort;
 import net.minecraft.resources.ResourceLocation;
