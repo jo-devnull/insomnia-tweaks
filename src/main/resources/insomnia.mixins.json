@@ -5,12 +5,15 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "insomnia.refmap.json",
   "mixins": [
-    "MixinEmiApi",
-    "MixinEmiPort"
-  ],
-  "client": [
+    "MixinIdentifier",
+    "emi.MixinEmiApi",
+    "emi.MixinEmiPort",
+    "moremobvariants.MixinMoreMobVariants"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+    "moremobvariants.MixinZombieRenderer"
+  ]
 }
