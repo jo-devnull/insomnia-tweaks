@@ -92,9 +92,9 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     implementation fg.deobf("curse.maven:emi-580555:6420945")
+    implementation fg.deobf("curse.maven:more-mob-variants-695107:5280609")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-
 }
 
 tasks.named('processResources', ProcessResources).configure {
