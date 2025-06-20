@@ -41,10 +41,12 @@ public class LunarCompat
     public static void clearLunarPhases(ServerLevel world) {
         DataStorage icData = DataStorage.getData(world);
 
-        for (String phase : icData.getPhases()) {
-            if (phase.startsWith("lunar:")) {
-                DataStorage.getData(world).setPhase(phase, false);
-                Insomnia.LOGGER.info("Disabling moon phase: {}", phase);
+        if (icData != null) {
+            for (String phase : icData.getPhases()) {
+                if (phase != null && phase.startsWith("lunar:")) {
+                    icData.setPhase(phase, false);
+                    Insomnia.LOGGER.info("Disabling moon phase: {}", phase);
+                }
             }
         }
     }
