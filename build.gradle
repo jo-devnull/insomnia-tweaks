@@ -86,6 +86,19 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        forRepositories(fg.repository) // Only add this if you're using ForgeGradle, otherwise remove this line
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 dependencies {
@@ -93,6 +106,8 @@ dependencies {
 
     implementation fg.deobf("curse.maven:emi-580555:6420945")
     implementation fg.deobf("curse.maven:more-mob-variants-695107:5280609")
+    implementation fg.deobf("curse.maven:lunar-602312:6625945")
+    implementation fg.deobf("curse.maven:in-control-257356:6549397")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
