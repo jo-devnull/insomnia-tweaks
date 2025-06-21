@@ -6,8 +6,6 @@ import mcjty.incontrol.data.DataStorage;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraftforge.event.TickEvent;
 
-import javax.xml.crypto.Data;
-
 public class LunarCompat
 {
     private static boolean checked = false;
