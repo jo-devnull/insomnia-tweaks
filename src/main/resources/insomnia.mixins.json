@@ -8,6 +8,8 @@
     "MixinIdentifier",
     "emi.MixinEmiApi",
     "emi.MixinEmiPort",
+    "incontrol.MixinGenericRuleEvaluator",
+    "incontrol.MixinSpawnRule",
     "moremobvariants.MixinMoreMobVariants"
   ],
   "injectors": {

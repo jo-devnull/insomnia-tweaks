@@ -21,13 +21,4 @@ public class Insomnia
     {
         MinecraftForge.EVENT_BUS.register(this);
     }
-
-    @Mod.EventBusSubscriber
-    public static class LevelTickHandler
-    {
-        @SubscribeEvent
-        public static void onLevelTick(TickEvent.LevelTickEvent event) {
-            LunarCompat.onWorldTick(event);
-        }
-    }
 }
