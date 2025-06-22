@@ -9,13 +9,10 @@
     "emi.MixinEmiApi",
     "emi.MixinEmiPort",
     "incontrol.MixinGenericRuleEvaluator",
-    "incontrol.MixinSpawnRule",
-    "moremobvariants.MixinMoreMobVariants"
+    "incontrol.MixinSpawnRule"
   ],
   "injectors": {
     "defaultRequire": 1
   },
-  "client": [
-    "moremobvariants.MixinZombieRenderer"
-  ]
+  "client": []
 }
