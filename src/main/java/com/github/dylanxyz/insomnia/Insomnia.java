@@ -1,12 +1,11 @@
 package com.github.dylanxyz.insomnia;
 
 import com.mojang.logging.LogUtils;
-import com.mrbysco.lunar.LunarPhaseData;
-import com.mrbysco.lunar.api.ILunarEvent;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
@@ -20,5 +19,21 @@ public class Insomnia
     public Insomnia()
     {
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @Mod.EventBusSubscriber
+    public static class PlayerSleepingHandler
+    {
+        @SubscribeEvent
+        public static void onPlayerSleep(PlayerSleepInBedEvent event) {
+            Player player = event.getEntity();
+            Level level = player.level();
+
+            if (level instanceof ServerLevel world) {
+                if (LunarCompat.cantSleep(world)) {
+                    event.setResult(Player.BedSleepingProblem.OTHER_PROBLEM);
+                }
+            }
+        }
     }
 }

@@ -6,9 +6,12 @@ import mcjty.incontrol.tools.typed.Key;
 import mcjty.incontrol.tools.typed.Type;
 import net.minecraft.server.level.ServerLevel;
 
+import java.util.List;
+
 public class LunarCompat
 {
     public static final Key<String> DURING = Key.create(Type.STRING, "during");
+    public static final List<String> CANT_SLEEP_PHASE = List.of("blood_moon", "eclipse_moon", "crimson_moon");
 
     public static String getLunarPhase(ServerLevel world) {
         LunarPhaseData phaseData = LunarPhaseData.get(world);
@@ -18,5 +21,9 @@ public class LunarCompat
             return lunarEvent.getID().getPath();
 
         return "default";
+    }
+
+    public static boolean cantSleep(ServerLevel world) {
+        return CANT_SLEEP_PHASE.contains(getLunarPhase(world));
     }
 }
