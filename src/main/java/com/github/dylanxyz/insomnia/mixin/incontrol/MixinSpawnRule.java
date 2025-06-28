@@ -1,6 +1,7 @@
 package com.github.dylanxyz.insomnia.mixin.incontrol;
 
-import com.github.dylanxyz.insomnia.LunarCompat;
+import com.github.dylanxyz.insomnia.compat.Lunar;
+import com.github.dylanxyz.insomnia.compat.SimpleClouds;
 import mcjty.incontrol.rules.SpawnRule;
 import mcjty.incontrol.tools.typed.Attribute;
 import mcjty.incontrol.tools.typed.GenericAttributeMapFactory;
@@ -18,6 +19,8 @@ public class MixinSpawnRule
 
     @Inject(at = @At("TAIL"), method = "<clinit>")
     private static void insomnia$addLunarCompat(CallbackInfo ci) {
-        FACTORY.attribute(Attribute.createMulti(LunarCompat.DURING));
+        FACTORY
+            .attribute(Attribute.createMulti(Lunar.LUNAR))
+            .attribute(Attribute.create(SimpleClouds.STORM));
     }
 }

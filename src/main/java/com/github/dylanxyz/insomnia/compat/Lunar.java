@@ -1,4 +1,4 @@
-package com.github.dylanxyz.insomnia;
+package com.github.dylanxyz.insomnia.compat;
 
 import com.mrbysco.lunar.LunarPhaseData;
 import com.mrbysco.lunar.api.ILunarEvent;
@@ -8,9 +8,9 @@ import net.minecraft.server.level.ServerLevel;
 
 import java.util.List;
 
-public class LunarCompat
+public class Lunar
 {
-    public static final Key<String> DURING = Key.create(Type.STRING, "during");
+    public static final Key<String> LUNAR = Key.create(Type.STRING, "lunar");
     public static final List<String> CANT_SLEEP_PHASE = List.of("blood_moon", "eclipse_moon", "crimson_moon");
 
     public static String getLunarPhase(ServerLevel world) {

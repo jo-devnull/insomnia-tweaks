@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "insomnia.refmap.json",
   "mixins": [
+    "coldsweat.MixinWorldHelper",
     "emi.MixinEmiApi",
     "emi.MixinEmiPort",
     "incontrol.MixinGenericRuleEvaluator",

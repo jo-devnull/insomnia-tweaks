@@ -1,5 +1,6 @@
 package com.github.dylanxyz.insomnia;
 
+import com.github.dylanxyz.insomnia.compat.Lunar;
 import com.mojang.logging.LogUtils;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
@@ -22,16 +23,17 @@ public class Insomnia
     }
 
     @Mod.EventBusSubscriber
-    public static class PlayerSleepingHandler
+    public static class PlayerEventHandler
     {
         @SubscribeEvent
-        public static void onPlayerSleep(PlayerSleepInBedEvent event) {
+        public static void onPlayerSleep(PlayerSleepInBedEvent event)
+        {
             Player player = event.getEntity();
             Level level = player.level();
 
             if (level instanceof ServerLevel world) {
-                if (LunarCompat.cantSleep(world)) {
-                    event.setResult(Player.BedSleepingProblem.OTHER_PROBLEM);
+                if (Lunar.cantSleep(world)) {
+                    event.setResult(Player.BedSleepingProblem.NOT_SAFE);
                 }
             }
         }
