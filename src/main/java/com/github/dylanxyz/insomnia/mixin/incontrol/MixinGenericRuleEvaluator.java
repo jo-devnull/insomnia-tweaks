@@ -1,12 +1,10 @@
 package com.github.dylanxyz.insomnia.mixin.incontrol;
 
-import com.github.dylanxyz.insomnia.compat.Lunar;
-import com.github.dylanxyz.insomnia.compat.SimpleClouds;
+import com.github.dylanxyz.insomnia.compat.InControl;
 import mcjty.incontrol.rules.support.GenericRuleEvaluator;
 import mcjty.incontrol.tools.rules.IEventQuery;
 import mcjty.incontrol.tools.typed.AttributeMap;
 import mcjty.incontrol.tools.varia.Tools;
-import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,31 +16,30 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 import java.util.function.BiFunction;
 
-import static com.github.dylanxyz.insomnia.compat.Lunar.LUNAR;
-import static com.github.dylanxyz.insomnia.compat.SimpleClouds.STORM;
+import static com.github.dylanxyz.insomnia.compat.InControl.LUNAR;
+import static com.github.dylanxyz.insomnia.compat.InControl.STORM;
 
 @Mixin(GenericRuleEvaluator.class)
 public class MixinGenericRuleEvaluator
 {
     @Shadow @Final
-    private List<BiFunction<Object, IEventQuery, Boolean>> checks;
+    private List<BiFunction<Object, IEventQuery<Object>, Boolean>> checks;
 
     @Inject(at = @At("TAIL"), method = "addChecks", remap = false)
-    private void insomnia$addMoonPhase(AttributeMap map, CallbackInfo ci) {
+    private void insomnia$addCompatChecks(AttributeMap map, CallbackInfo ci) {
         map.consumeAsList(LUNAR, (phases) -> {
             if (!phases.isEmpty()) {
                 checks.add((event, query) -> {
                     ServerLevel world = Tools.getServerWorld(query.getWorld(event));
-                    return phases.contains(Lunar.getLunarPhase(world));
+                    return phases.contains(InControl.getLunarPhase(world));
                 });
             }
         });
 
         map.consume(STORM, (value) -> {
             checks.add((event, query) -> {
-                BlockPos pos = query.getPos(event);
                 ServerLevel world = Tools.getServerWorld(query.getWorld(event));
-                return SimpleClouds.isRainingAt(world, pos);
+                return world.isRainingAt(query.getPos(event));
             });
         });
     }

@@ -1,6 +1,6 @@
 package com.github.dylanxyz.insomnia;
 
-import com.github.dylanxyz.insomnia.compat.Lunar;
+import com.github.dylanxyz.insomnia.compat.InControl;
 import com.mojang.logging.LogUtils;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
@@ -32,10 +32,22 @@ public class Insomnia
             Level level = player.level();
 
             if (level instanceof ServerLevel world) {
-                if (Lunar.cantSleep(world)) {
+                if (InControl.cantSleep(world)) {
                     event.setResult(Player.BedSleepingProblem.NOT_SAFE);
                 }
             }
         }
+
+//        @SubscribeEvent
+//        public static void onServerChat(ServerChatEvent event)
+//        {
+//            if (event.getMessage().getString().equals("rain")) {
+//                ServerPlayer player = event.getPlayer();
+//                ServerLevel world = player.serverLevel();
+//
+//                boolean isRaining = world.isRainingAt(player.blockPosition());
+//                LOGGER.info("Rain: {}", isRaining);
+//            }
+//        }
     }
 }

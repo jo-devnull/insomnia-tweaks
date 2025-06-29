@@ -112,11 +112,14 @@ dependencies {
     implementation fg.deobf("curse.maven:emi-580555:6420945")
     implementation fg.deobf("curse.maven:lunar-602312:6625945")
     implementation fg.deobf("curse.maven:in-control-257356:6549397")
-
-    implementation fg.deobf("nonamecrackers2:crackerslib-forge:1.20.1-0.4.6")
-    implementation fg.deobf("nonamecrackers2:simplecloudsapi-forge:1.1-1.20.1")
-    implementation fg.deobf("curse.maven:simple-clouds-1121215:6685530")
     implementation fg.deobf("curse.maven:cold-sweat-506194:6681104")
+
+    runtimeOnly fg.deobf("nonamecrackers2:crackerslib-forge:1.20.1-0.4.6")
+    runtimeOnly fg.deobf("nonamecrackers2:simplecloudsapi-forge:1.1-1.20.1")
+    runtimeOnly fg.deobf("curse.maven:simple-clouds-1121215:6685530")
+
+    runtimeOnly fg.deobf("maven.modrinth:embeddium:0.3.31+mc1.20.1")
+    runtimeOnly fg.deobf("maven.modrinth:spark:1.10.53-forge")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }

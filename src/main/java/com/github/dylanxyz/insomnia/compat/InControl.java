@@ -8,9 +8,11 @@ import net.minecraft.server.level.ServerLevel;
 
 import java.util.List;
 
-public class Lunar
+public class InControl
 {
     public static final Key<String> LUNAR = Key.create(Type.STRING, "lunar");
+    public static final Key<Boolean> STORM = Key.create(Type.BOOLEAN, "storm");
+
     public static final List<String> CANT_SLEEP_PHASE = List.of("blood_moon", "eclipse_moon", "crimson_moon");
 
     public static String getLunarPhase(ServerLevel world) {
