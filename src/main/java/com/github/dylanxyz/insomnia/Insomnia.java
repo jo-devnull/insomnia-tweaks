@@ -23,7 +23,7 @@ public class Insomnia
     }
 
     @Mod.EventBusSubscriber
-    public static class PlayerEventHandler
+    public static class ModEventHandlers
     {
         @SubscribeEvent
         public static void onPlayerSleep(PlayerSleepInBedEvent event)
@@ -37,17 +37,5 @@ public class Insomnia
                 }
             }
         }
-
-//        @SubscribeEvent
-//        public static void onServerChat(ServerChatEvent event)
-//        {
-//            if (event.getMessage().getString().equals("rain")) {
-//                ServerPlayer player = event.getPlayer();
-//                ServerLevel world = player.serverLevel();
-//
-//                boolean isRaining = world.isRainingAt(player.blockPosition());
-//                LOGGER.info("Rain: {}", isRaining);
-//            }
-//        }
     }
 }
