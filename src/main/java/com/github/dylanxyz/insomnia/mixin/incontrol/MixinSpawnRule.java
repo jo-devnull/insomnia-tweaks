@@ -19,7 +19,7 @@ public class MixinSpawnRule
     @Inject(at = @At("TAIL"), method = "<clinit>")
     private static void insomnia$addLunarCompat(CallbackInfo ci) {
         FACTORY
-            .attribute(Attribute.createMulti(InControl.LUNAR))
-            .attribute(Attribute.create(InControl.STORM));
+            .attribute(Attribute.createMulti(InControl.LUNAR));
+//            .attribute(Attribute.create(InControl.STORM));
     }
 }

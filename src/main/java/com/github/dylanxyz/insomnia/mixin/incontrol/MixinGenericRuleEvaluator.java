@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.function.BiFunction;
 
 import static com.github.dylanxyz.insomnia.compat.InControl.LUNAR;
-import static com.github.dylanxyz.insomnia.compat.InControl.STORM;
 
 @Mixin(GenericRuleEvaluator.class)
 public class MixinGenericRuleEvaluator
@@ -36,11 +35,11 @@ public class MixinGenericRuleEvaluator
             }
         });
 
-        map.consume(STORM, (value) -> {
-            checks.add((event, query) -> {
-                ServerLevel world = Tools.getServerWorld(query.getWorld(event));
-                return InControl.isInsideStorm(world, query.getEntity(event).blockPosition());
-            });
-        });
+//        map.consume(STORM, (value) -> {
+//            checks.add((event, query) -> {
+//                ServerLevel world = Tools.getServerWorld(query.getWorld(event));
+//                return InControl.isInsideStorm(world, query.getEntity(event).blockPosition());
+//            });
+//        });
     }
 }
