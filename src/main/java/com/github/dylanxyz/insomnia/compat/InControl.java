@@ -11,7 +11,6 @@ import java.util.List;
 public class InControl
 {
     public static final Key<String> LUNAR = Key.create(Type.STRING, "lunar");
-    public static final Key<Boolean> STORM = Key.create(Type.BOOLEAN, "storm");
 
     public static final List<String> CANT_SLEEP_PHASE = List.of("blood_moon", "eclipse_moon", "crimson_moon");
 
@@ -28,13 +27,4 @@ public class InControl
     public static boolean cantSleep(ServerLevel world) {
         return CANT_SLEEP_PHASE.contains(getLunarPhase(world));
     }
-
-//    public static boolean isInsideStorm(Level world, BlockPos pos) {
-//        Pair<CloudType, Float> result = CloudManager.get(world).getCloudTypeAtWorldPos(pos.getX() + 0.5f, pos.getZ() + 0.5f);
-//
-//        return (
-//            result.getLeft().weatherType() == WeatherType.THUNDERSTORM &&
-//            result.getRight() < 0.5
-//        );
-//    }
 }

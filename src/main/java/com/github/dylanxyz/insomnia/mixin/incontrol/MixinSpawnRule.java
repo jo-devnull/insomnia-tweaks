@@ -20,6 +20,5 @@ public class MixinSpawnRule
     private static void insomnia$addLunarCompat(CallbackInfo ci) {
         FACTORY
             .attribute(Attribute.createMulti(InControl.LUNAR));
-//            .attribute(Attribute.create(InControl.STORM));
     }
 }

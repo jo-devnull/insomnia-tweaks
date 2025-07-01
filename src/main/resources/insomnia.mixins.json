@@ -8,7 +8,8 @@
     "emi.MixinEmiApi",
     "emi.MixinEmiPort",
     "incontrol.MixinGenericRuleEvaluator",
-    "incontrol.MixinSpawnRule"
+    "incontrol.MixinSpawnRule",
+    "sanity.MixinDarkness"
   ],
   "injectors": {
     "defaultRequire": 1

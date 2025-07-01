@@ -34,12 +34,5 @@ public class MixinGenericRuleEvaluator
                 });
             }
         });
-
-//        map.consume(STORM, (value) -> {
-//            checks.add((event, query) -> {
-//                ServerLevel world = Tools.getServerWorld(query.getWorld(event));
-//                return InControl.isInsideStorm(world, query.getEntity(event).blockPosition());
-//            });
-//        });
     }
 }
