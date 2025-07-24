@@ -1,5 +1,6 @@
 package com.github.dylanxyz.insomnia.mixin.incontrol;
 
+import com.github.dylanxyz.insomnia.Insomnia;
 import com.github.dylanxyz.insomnia.compat.InControl;
 import mcjty.incontrol.rules.support.GenericRuleEvaluator;
 import mcjty.incontrol.tools.rules.IEventQuery;

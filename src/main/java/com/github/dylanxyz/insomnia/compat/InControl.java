@@ -1,12 +1,18 @@
 package com.github.dylanxyz.insomnia.compat;
 
-import com.mrbysco.lunar.LunarPhaseData;
-import com.mrbysco.lunar.api.ILunarEvent;
+import dev.corgitaco.enhancedcelestials.EnhancedCelestials;
+import dev.corgitaco.enhancedcelestials.api.EnhancedCelestialsRegistry;
+import dev.corgitaco.enhancedcelestials.api.lunarevent.LunarEvent;
+import dev.corgitaco.enhancedcelestials.lunarevent.EnhancedCelestialsLunarForecastWorldData;
 import mcjty.incontrol.tools.typed.Key;
 import mcjty.incontrol.tools.typed.Type;
+import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.Level;
 
 import java.util.List;
+import java.util.Optional;
 
 public class InControl
 {
@@ -14,12 +20,38 @@ public class InControl
 
     public static final List<String> CANT_SLEEP_PHASE = List.of("blood_moon", "eclipse_moon", "crimson_moon");
 
-    public static String getLunarPhase(ServerLevel world) {
-        LunarPhaseData phaseData = LunarPhaseData.get(world);
-        ILunarEvent lunarEvent = phaseData.getActiveLunarEvent();
+    public static String getLunarPhase(ServerLevel world)
+    {
+        if (world.dimension() != Level.OVERWORLD) {
+            return "default";
+        }
 
-        if (phaseData.hasEventActive() && lunarEvent != null)
-            return lunarEvent.getID().getPath();
+        long time = world.getDayTime() % 24000;
+
+        if (time < 13000 || time > 23000) {
+            return "default";
+        }
+
+        Optional<EnhancedCelestialsLunarForecastWorldData> query =
+            EnhancedCelestials.lunarForecastWorldData(world);
+
+        if (query.isEmpty()) {
+            return "default";
+        }
+
+        EnhancedCelestialsLunarForecastWorldData data = query.get();
+        Holder<LunarEvent> eventHolder = data.getLunarEventForDay(data.getCurrentDay());
+
+        if (eventHolder.isBound()) {
+            ResourceLocation eventKey = world
+                .registryAccess()
+                .registry(EnhancedCelestialsRegistry.LUNAR_EVENT_KEY)
+                .orElseThrow()
+                .getKey(eventHolder.value());
+
+            if (eventKey != null)
+                return eventKey.getNamespace() + ":" + eventKey.getPath();
+        }
 
         return "default";
     }

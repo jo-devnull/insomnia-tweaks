@@ -12,6 +12,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -28,7 +29,7 @@ java {
 }
 
 minecraft {
-    mappings channel: mapping_channel, version: mapping_version
+    mappings channel: 'parchment', version: '2023.09.03-1.20.1'
 
     copyIdeResources = true
 
@@ -110,7 +111,6 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     implementation fg.deobf("curse.maven:emi-580555:6420945")
-    implementation fg.deobf("curse.maven:lunar-602312:6625945")
     implementation fg.deobf("curse.maven:in-control-257356:6549397")
     implementation fg.deobf("curse.maven:cold-sweat-506194:6681104")
     implementation fg.deobf("curse.maven:geckolib-388172:6658942")
@@ -118,11 +118,12 @@ dependencies {
     implementation fg.deobf("curse.maven:sanity-descent-into-madness-876448:4625236")
     implementation fg.deobf("curse.maven:curios-309927:6418456")
 
+    implementation fg.deobf("maven.modrinth:enhanced-celestials:1.20.1-5.0.3.1-forge")
+    implementation fg.deobf("maven.modrinth:data-anchor:1.0.0.19-forge")
+    implementation fg.deobf("maven.modrinth:corgilib:1.20.1-4.0.3.4-forge")
+
     runtimeOnly fg.deobf("maven.modrinth:embeddium:0.3.31+mc1.20.1")
     runtimeOnly fg.deobf("maven.modrinth:spark:1.10.53-forge")
-
-//    runtimeOnly fg.deobf("curse.maven:curious-lanterns-621377:6613556")
-//    runtimeOnly fg.deobf("curse.maven:radiant-gear-602199:6029352")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
