@@ -21,21 +21,4 @@ public class Insomnia
     {
         MinecraftForge.EVENT_BUS.register(this);
     }
-
-    @Mod.EventBusSubscriber
-    public static class ModEventHandlers
-    {
-        @SubscribeEvent
-        public static void onPlayerSleep(PlayerSleepInBedEvent event)
-        {
-            Player player = event.getEntity();
-            Level level = player.level();
-
-            if (level instanceof ServerLevel world) {
-                if (InControl.cantSleep(world)) {
-                    event.setResult(Player.BedSleepingProblem.NOT_SAFE);
-                }
-            }
-        }
-    }
 }
