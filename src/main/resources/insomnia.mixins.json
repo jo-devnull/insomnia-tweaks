@@ -1,18 +1,19 @@
 {
-  "required": true,
-  "minVersion": "0.8",
-  "package": "com.github.dylanxyz.insomnia.mixin",
-  "compatibilityLevel": "JAVA_8",
-  "refmap": "insomnia.refmap.json",
-  "mixins": [
-    "emi.MixinEmiApi",
-    "emi.MixinEmiPort",
-    "incontrol.MixinGenericRuleEvaluator",
-    "incontrol.MixinSpawnRule",
-    "sanity.MixinDarkness"
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  },
-  "client": []
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.github.dylanxyz.insomnia.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "refmap": "insomnia.refmap.json",
+    "mixins": [
+        "emi.MixinEmiApi",
+        "emi.MixinEmiPort",
+        "incontrol.MixinGenericRuleEvaluator",
+        "incontrol.MixinSpawnRule",
+        "sanity.MixinDarkness",
+        "totweaks.MixinSunstrikeEffect"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "client": []
 }
