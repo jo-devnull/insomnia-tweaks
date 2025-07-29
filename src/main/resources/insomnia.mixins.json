@@ -9,8 +9,7 @@
         "emi.MixinEmiPort",
         "incontrol.MixinGenericRuleEvaluator",
         "incontrol.MixinSpawnRule",
-        "sanity.MixinDarkness",
-        "totweaks.MixinSunstrikeEffect"
+        "sanity.MixinDarkness"
     ],
     "injectors": {
         "defaultRequire": 1
