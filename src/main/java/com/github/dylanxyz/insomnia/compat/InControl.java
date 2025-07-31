@@ -1,9 +1,9 @@
 package com.github.dylanxyz.insomnia.compat;
 
-import dev.corgitaco.enhancedcelestials.EnhancedCelestials;
-import dev.corgitaco.enhancedcelestials.api.EnhancedCelestialsRegistry;
-import dev.corgitaco.enhancedcelestials.api.lunarevent.LunarEvent;
-import dev.corgitaco.enhancedcelestials.lunarevent.EnhancedCelestialsLunarForecastWorldData;
+ import dev.corgitaco.enhancedcelestials.EnhancedCelestials;
+ import dev.corgitaco.enhancedcelestials.api.EnhancedCelestialsRegistry;
+ import dev.corgitaco.enhancedcelestials.api.lunarevent.LunarEvent;
+ import dev.corgitaco.enhancedcelestials.lunarevent.EnhancedCelestialsLunarForecastWorldData;
 import mcjty.incontrol.tools.typed.Key;
 import mcjty.incontrol.tools.typed.Type;
 import net.minecraft.core.Holder;

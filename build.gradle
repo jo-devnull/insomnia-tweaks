@@ -124,6 +124,9 @@ dependencies {
     implementation fg.deobf("curse.maven:migamigos-1188039:6129596")
     implementation fg.deobf("curse.maven:two-players-one-horse-432444:6658856")
 
+    implementation fg.deobf("curse.maven:bookshelf-228525:5423987")
+    implementation fg.deobf("curse.maven:friendly-fire-255105:5368433")
+
     implementation fg.deobf("curse.maven:sanity-descent-into-madness-876448:4625236")
     implementation fg.deobf("curse.maven:curios-309927:6418456")
 

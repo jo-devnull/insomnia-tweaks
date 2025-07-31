@@ -9,6 +9,7 @@
         "emi.MixinEmiPort",
         "incontrol.MixinGenericRuleEvaluator",
         "incontrol.MixinSpawnRule",
+        "migamigos.MixinAmigoEntity",
         "sanity.MixinDarkness"
     ],
     "injectors": {

@@ -3,6 +3,7 @@
     "values": [
         "minecraft:parrot",
         "minecraft:allay",
-        "minecraft:wolf"
+        "minecraft:wolf",
+        "minecraft:sheep"
     ]
 }
