@@ -1,0 +1,12 @@
+{
+    "type": "forge:add_spawns",
+    "biomes": "minecraft:soul_sand_valley",
+    "spawners": [
+        {
+            "type": "fromtheshadows:nehemoth",
+            "weight": 80,
+            "minCount": 1,
+            "maxCount": 4
+        }
+    ]
+}

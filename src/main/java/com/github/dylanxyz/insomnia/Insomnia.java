@@ -8,6 +8,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 @Mod(Insomnia.MODID)
@@ -21,10 +22,9 @@ public class Insomnia
         new ResourceLocation("friendlyfire", "player_protection")
     );
 
-    public Insomnia()
+    public Insomnia(FMLJavaModLoadingContext context)
     {
         MinecraftForge.EVENT_BUS.register(this);
-
         PlayerEvents.register();
     }
 }

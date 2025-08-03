@@ -1,0 +1,18 @@
+{
+    "type": "forge:add_spawns",
+    "biomes": "#insomnia:nehemoth_spawns",
+    "spawners": [
+        {
+            "type": "fromtheshadows:nehemoth",
+            "weight": 70,
+            "minCount": 1,
+            "maxCount": 4
+        },
+        {
+            "type": "fromtheshadows:froglin",
+            "weight": 70,
+            "minCount": 1,
+            "maxCount": 3
+        }
+    ]
+}

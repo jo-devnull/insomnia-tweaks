@@ -1,9 +1,7 @@
 package com.github.dylanxyz.insomnia.event;
 
-import com.github.dylanxyz.insomnia.Insomnia;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
@@ -15,8 +13,6 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import ttv.migami.migamigos.entity.AmigoEntity;
-
-import java.util.Objects;
 
 @Mod.EventBusSubscriber
 public class PlayerEvents

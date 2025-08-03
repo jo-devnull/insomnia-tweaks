@@ -7,6 +7,7 @@
     "mixins": [
         "emi.MixinEmiApi",
         "emi.MixinEmiPort",
+        "fromtheshadows.MixinNehemothEntity",
         "incontrol.MixinGenericRuleEvaluator",
         "incontrol.MixinSpawnRule",
         "migamigos.MixinAmigoEntity",
