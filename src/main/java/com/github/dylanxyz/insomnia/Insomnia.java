@@ -24,6 +24,7 @@ public class Insomnia
 
     public Insomnia(FMLJavaModLoadingContext context)
     {
+
         MinecraftForge.EVENT_BUS.register(this);
         PlayerEvents.register();
     }

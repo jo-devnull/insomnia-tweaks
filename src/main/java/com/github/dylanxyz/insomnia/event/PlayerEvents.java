@@ -3,7 +3,6 @@ package com.github.dylanxyz.insomnia.event;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.scores.Team;
@@ -12,7 +11,6 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import ttv.migami.migamigos.entity.AmigoEntity;
 
 @Mod.EventBusSubscriber
 public class PlayerEvents
@@ -38,12 +36,6 @@ public class PlayerEvents
                 else if (entity instanceof TamableAnimal tamable)
                     shouldMount = tamable.isTame() && player.getUUID().equals(tamable.getOwnerUUID());
 
-                else if (entity instanceof Animal animal)
-                    shouldMount = player.getUUID().equals(animal.getUUID());
-
-                else if (entity instanceof AmigoEntity amigo)
-                    shouldMount = amigo.getPlayer() == player;
-
                 if (shouldMount) {
                     horsey.setEating(false);
                     horsey.setStanding(false);
@@ -64,10 +56,17 @@ public class PlayerEvents
         if (event.isMounting())
             return;
 
-        if (event.getEntityMounting() instanceof ServerPlayer) {
+        if (event.getEntityMounting() instanceof ServerPlayer player) {
+            Team playerTeam = player.getTeam();
+
             if (event.getEntityBeingMounted() instanceof AbstractHorse horsey) {
                 for (var entity : horsey.getPassengers()) {
-                    if (!(entity instanceof Player) && entity instanceof LivingEntity)
+                    if (entity instanceof Player)
+                        continue;
+
+                    if (entity instanceof TamableAnimal)
+                        entity.stopRiding();
+                    else if (playerTeam != null && playerTeam.isAlliedTo(entity.getTeam()))
                         entity.stopRiding();
                 }
             }

@@ -132,6 +132,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:caelus-308989:5281700")
     runtimeOnly fg.deobf("curse.maven:playeranimator-658587:4587214")
     compileOnly fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${irons_spells_version}:api")
+
     implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${irons_spells_version}")
 
     runtimeOnly fg.deobf("maven.modrinth:embeddium:0.3.31+mc1.20.1")
