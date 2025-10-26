@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+
+    "pattern": [
+        "==",
+        "//"
+    ],
+
+    "key": {
+        "=": { "tag": "minecraft:leaves" },
+
+        "/": [
+            { "item": "minecraft:stick" },
+            { "item": "minecraft:bamboo" }
+        ]
+    },
+
+    "result": {
+        "item": "insomnia:improvised_bed"
+    }
+}
