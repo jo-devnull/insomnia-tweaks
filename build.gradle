@@ -122,7 +122,7 @@ dependencies {
     implementation fg.deobf("curse.maven:framework-549225:6531428")
     implementation fg.deobf("curse.maven:migamigos-1188039:6129596")
 
-    implementation fg.deobf("curse.maven:sanity-descent-into-madness-876448:4625236")
+//    implementation fg.deobf("curse.maven:sanity-descent-into-madness-876448:4625236")
     implementation fg.deobf("curse.maven:curios-309927:6418456")
 
     compileOnly fg.deobf("maven.modrinth:enhanced-celestials:1.20.1-5.0.3.1-forge")

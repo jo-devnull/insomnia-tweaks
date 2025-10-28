@@ -10,8 +10,7 @@
         "fromtheshadows.MixinNehemothEntity",
         "incontrol.MixinGenericRuleEvaluator",
         "incontrol.MixinSpawnRule",
-        "migamigos.MixinAmigoEntity",
-        "sanity.MixinDarkness"
+        "migamigos.MixinAmigoEntity"
     ],
     "injectors": {
         "defaultRequire": 1
