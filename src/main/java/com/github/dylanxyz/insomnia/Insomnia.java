@@ -1,6 +1,5 @@
 package com.github.dylanxyz.insomnia;
 
-import com.github.dylanxyz.insomnia.event.BlockEvents;
 import com.github.dylanxyz.insomnia.event.PlayerEvents;
 import com.github.dylanxyz.insomnia.registry.ISBlocks;
 import com.github.dylanxyz.insomnia.registry.ISCreativeTabs;
@@ -37,6 +36,5 @@ public class Insomnia
 
         MinecraftForge.EVENT_BUS.register(this);
         PlayerEvents.register();
-        BlockEvents.register();
     }
 }

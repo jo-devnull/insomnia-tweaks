@@ -8,7 +8,7 @@
     ],
 
     "key": {
-        "=": { "tag": "minecraft:leaves" },
+        "=": { "tag": "minecraft:saplings" },
 
         "/": [
             { "item": "minecraft:stick" },
