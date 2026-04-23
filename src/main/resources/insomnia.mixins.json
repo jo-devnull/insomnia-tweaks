@@ -1,22 +1,20 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.github.dylanxyz.insomnia.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "package": "github.jodevnull.insomnia.mixin",
+  "compatibilityLevel": "JAVA_21",
   "refmap": "insomnia.refmap.json",
   "mixins": [
-    "MixinPackResources",
     "emi.MixinEmiApi",
     "emi.MixinEmiPort",
     "emi.MixinEmiScreenManager",
     "emi.MixinScreenSpace",
-    "fromtheshadows.MixinNehemothEntity",
     "incontrol.MixinGenericRuleEvaluator",
     "incontrol.MixinSpawnRule",
-    "migamigos.MixinAmigoEntity"
+    "minecraft.MixinLivingEntity"
   ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
-  },
-  "client": []
+  }
 }
