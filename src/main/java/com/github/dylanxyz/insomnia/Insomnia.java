@@ -1,6 +1,8 @@
 package com.github.dylanxyz.insomnia;
 
+import com.github.dylanxyz.insomnia.commands.InsomniaCommands;
 import com.github.dylanxyz.insomnia.event.PlayerEvents;
+import com.github.dylanxyz.insomnia.network.ISPacketHandler;
 import com.github.dylanxyz.insomnia.registry.ISBlocks;
 import com.github.dylanxyz.insomnia.registry.ISCreativeTabs;
 import com.github.dylanxyz.insomnia.registry.ISItems;
@@ -42,22 +44,14 @@ public class Insomnia
             LOADED_MODS.add(mod.getModId());
         }
 
+        ISPacketHandler.register();
+        InsomniaCommands.register();
+
         ISBlocks.register(event);
         ISItems.register(event);
         ISCreativeTabs.register(event);
 
         MinecraftForge.EVENT_BUS.register(this);
         PlayerEvents.register();
-    }
-
-    public static boolean canSkipResource(ResourceLocation id) {
-        if (id == null) return false;
-
-        String namespace = id.getNamespace();
-
-        if (Config.getPrunerKeep().contains(namespace))
-            return false;
-
-        return !LOADED_MODS.contains(namespace);
     }
 }
