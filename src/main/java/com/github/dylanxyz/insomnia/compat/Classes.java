@@ -8,14 +8,10 @@ public class Classes
 {
     @Nullable
     public static String getAvatarForClass(ClassEnhancement.PlayerClass playerClass) {
-        if (playerClass.commands.isEmpty())
-            return null;
+        final String classId = playerClass.id;
 
-        final String command = playerClass.commands.get(0);
-
-        if (command.startsWith("insomnia")) {
-            String[] args = command.split(" ");
-            if (args.length > 0) return args[args.length - 1];
+        if (classId.startsWith("@")) {
+            return classId.substring(1);
         }
 
         return null;
