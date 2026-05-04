@@ -126,20 +126,25 @@ dependencies {
     implementation fg.deobf(framework)
     implementation fg.deobf(migamigos)
     implementation fg.deobf(curios)
-    implementation fg.deobf(figura)
-    implementation fg.deobf(class_enhancement)
 
     compileOnly fg.deobf(enhancedcelestials)
     compileOnly fg.deobf(dataanchor)
     compileOnly fg.deobf(corgilib)
 
-    runtimeOnly fg.deobf(caelus)
+    runtimeOnly fg.deobf(ironslib)
     runtimeOnly fg.deobf(playeranimator)
-    compileOnly fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${ironsspells_version}:api")
-    implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${ironsspells_version}")
+
+    implementation fg.deobf("io.redspace:irons_spellbooks:${irons_spells}")
 
     runtimeOnly fg.deobf(embeddium)
     runtimeOnly fg.deobf(spark)
+
+    runtimeOnly fg.deobf(architectury)
+    runtimeOnly fg.deobf(ftb_library)
+    runtimeOnly fg.deobf(ftb_teams)
+    implementation fg.deobf(ftb_quests)
+
+    runtimeOnly fg.deobf("curse.maven:configured-457570:5180900")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }

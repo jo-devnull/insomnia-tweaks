@@ -5,7 +5,6 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "insomnia.refmap.json",
   "mixins": [
-    "classenhancement.MixinClassEnhancement",
     "emi.MixinEmiApi",
     "emi.MixinEmiPort",
     "emi.MixinEmiScreenManager",
@@ -13,12 +12,11 @@
     "fromtheshadows.MixinNehemothEntity",
     "incontrol.MixinGenericRuleEvaluator",
     "incontrol.MixinSpawnRule",
-    "migamigos.MixinAmigoEntity"
+    "migamigos.MixinAmigoEntity",
+    "quests.FTBQuestsCommandsAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
   },
-  "client": [
-    "classenhancement.MixinClassSelectionScreen"
-  ]
+  "client": []
 }

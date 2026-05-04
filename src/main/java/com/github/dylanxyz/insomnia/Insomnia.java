@@ -1,8 +1,8 @@
 package com.github.dylanxyz.insomnia;
 
-import com.github.dylanxyz.insomnia.commands.InsomniaCommands;
+import com.github.dylanxyz.insomnia.command.ISCommands;
+import com.github.dylanxyz.insomnia.compat.Quests;
 import com.github.dylanxyz.insomnia.event.PlayerEvents;
-import com.github.dylanxyz.insomnia.network.ISPacketHandler;
 import com.github.dylanxyz.insomnia.registry.ISBlocks;
 import com.github.dylanxyz.insomnia.registry.ISCreativeTabs;
 import com.github.dylanxyz.insomnia.registry.ISItems;
@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -32,7 +33,7 @@ public class Insomnia
 
     public static final TagKey<EntityType<?>> IS_PROTECTED = TagKey.create(
         Registries.ENTITY_TYPE,
-        new ResourceLocation("friendlyfire", "player_protection")
+        ResourceLocation.fromNamespaceAndPath("friendlyfire", "player_protection")
     );
 
     public Insomnia(FMLJavaModLoadingContext context)
@@ -44,8 +45,7 @@ public class Insomnia
             LOADED_MODS.add(mod.getModId());
         }
 
-        ISPacketHandler.register();
-        InsomniaCommands.register();
+        MinecraftForge.EVENT_BUS.addListener(this::addCommands);
 
         ISBlocks.register(event);
         ISItems.register(event);
@@ -53,5 +53,10 @@ public class Insomnia
 
         MinecraftForge.EVENT_BUS.register(this);
         PlayerEvents.register();
+        Quests.register();
+    }
+
+    public void addCommands(RegisterCommandsEvent event) {
+        ISCommands.register(event.getDispatcher());
     }
 }
