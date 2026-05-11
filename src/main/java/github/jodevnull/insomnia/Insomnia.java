@@ -32,6 +32,6 @@ public class Insomnia
     }
 
     private void registerCommand(RegisterCommandsEvent event) {
-        MiscCommands.createCommand(event.getDispatcher());
+        MiscCommands.registerCommands(event.getDispatcher());
     }
 }

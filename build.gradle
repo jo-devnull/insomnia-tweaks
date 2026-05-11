@@ -91,18 +91,34 @@ neoForge {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-    implementation "maven.modrinth:$emi"
-    implementation "maven.modrinth:$incontrol"
-
-    implementation "maven.modrinth:$enhanced_celestials"
-    implementation "maven.modrinth:$data_anchor"
-    implementation "maven.modrinth:$corgilib"
-
     implementation "io.redspace:irons_spellbooks:${irons_spellbooks}"
-    implementation "maven.modrinth:$playeranimator"
-    implementation "maven.modrinth:$ironslib"
-    implementation "maven.modrinth:$geckolib"
-    implementation "maven.modrinth:$curios"
+
+    for (property in rootProject.properties) {
+        if (!property.key.startsWithAny("modrinth.", "curseforge.")) {
+            continue
+        }
+
+        var modId = property.key.split("\\.").last()
+        var version = property.value as String
+        var type = "implementation"
+
+        if (version.contains(" @")) {
+            var split = version.split(" @")
+            type = split[1]
+            version = split[0]
+        }
+
+        var spec = property.key.startsWith("modrinth") ?
+                "maven.modrinth:$modId:$version" :
+                "curse.maven:$modId-$version"
+
+        if (type == "implementation")
+            implementation(spec)
+        else if (type == "runtimeOnly")
+            runtimeOnly(spec)
+        else if (type == "compileOnly")
+            compileOnly(spec)
+    }
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

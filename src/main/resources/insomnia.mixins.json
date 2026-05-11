@@ -11,7 +11,8 @@
     "emi.MixinScreenSpace",
     "incontrol.MixinGenericRuleEvaluator",
     "incontrol.MixinSpawnRule",
-    "minecraft.MixinLivingEntity"
+    "minecraft.MixinLivingEntity",
+    "quests.FTBQuestsCommandsAccessor"
   ],
   "client": [],
   "injectors": {
