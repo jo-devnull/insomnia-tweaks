@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Optional;
 
 public class EmiExtensions
@@ -43,6 +45,21 @@ public class EmiExtensions
         return fields;
     }
 
+    public static ResourceLocation getLocationReal(ResourceLocation location) {
+        final var segments = new ArrayList<>(
+            Arrays.stream(location.getPath().split("/")).filter(s -> !s.trim().isEmpty()).toList()
+        );
+
+        var namespace = location.getNamespace();
+
+        if (location.getPath().startsWith("/")) {
+            namespace = segments.removeFirst();
+        }
+
+        final var path = String.join("/", segments) + ".json";
+        return ResourceLocation.fromNamespaceAndPath(namespace, path);
+    }
+
     public static Optional<File> getRecipeFile(ResourceLocation recipeLocation) {
         final var server = ServerLifecycleHooks.getCurrentServer();
         final var minecraft = Minecraft.getInstance();
@@ -51,17 +68,15 @@ public class EmiExtensions
         if (server == null)
             return Optional.empty();
 
-        final var tempdir = FMLPaths.getOrCreateGameRelativePath(RECIPES.resolve(recipeLocation.getNamespace()));
-        final var recipe = tempdir.resolve(recipeLocation.getPath() + ".json");
+        final var location = getLocationReal(recipeLocation);
+        final var tempdir = FMLPaths.getOrCreateGameRelativePath(RECIPES.resolve(location.getNamespace()));
+        final var recipe = tempdir.resolve(location.getPath());
 
         if (Files.exists(recipe)) {
             return Optional.of(recipe.toFile());
         }
 
-        var location = recipeLocation.withPrefix("recipe/");
-            location = location.withPath(location.getPath() + ".json");
-
-        final var resource = server.getResourceManager().getResource(location);
+        final var resource = server.getResourceManager().getResource(location.withPrefix("recipe/"));
 
         if (resource.isPresent()) try {
             final var reader = new JsonReader(resource.get().openAsReader());
