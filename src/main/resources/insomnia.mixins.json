@@ -6,15 +6,21 @@
   "refmap": "insomnia.refmap.json",
   "mixins": [
     "emi.MixinEmiApi",
+    "emi.MixinEmiConfig",
+    "emi.MixinEmiPersistentData",
     "emi.MixinEmiPort",
     "emi.MixinEmiScreenManager",
+    "emi.MixinEmiSidebars",
+    "emi.MixinEmiSidebarType",
     "emi.MixinScreenSpace",
     "incontrol.MixinGenericRuleEvaluator",
     "incontrol.MixinSpawnRule",
     "minecraft.MixinLivingEntity",
     "quests.FTBQuestsCommandsAccessor"
   ],
-  "client": [],
+  "client": [
+    "emi.MixinConfigScreen"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
