@@ -1,6 +1,5 @@
 package github.jodevnull.insomnia.mixin.emi;
 
-import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.stack.EmiStackInteraction;
 import dev.emi.emi.config.SidebarType;
 import dev.emi.emi.input.EmiBind;
@@ -9,7 +8,6 @@ import dev.emi.emi.screen.EmiScreenBase;
 import dev.emi.emi.screen.EmiScreenManager;
 import dev.emi.emi.screen.widget.EmiSearchWidget;
 import github.jodevnull.insomnia.compat.emi.EmiCategory;
-import github.jodevnull.insomnia.compat.emi.EmiExtensions;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -48,22 +46,6 @@ public abstract class MixinEmiScreenManager
     private static void insomnia$stackInteraction(EmiStackInteraction stack, Function<EmiBind, Boolean> function, CallbackInfoReturnable<Boolean> cir) {
         if (stack.getStack() instanceof EmiCategory) {
             cir.setReturnValue(false);
-        }
-    }
-
-    @Inject(method = "recipeInteraction", at=@At("HEAD"), cancellable = true)
-    private static void insomnia$copyRecipe(EmiRecipe recipe, Function<EmiBind, Boolean> function, CallbackInfoReturnable<Boolean> cir) {
-        if (recipe == null) {
-            cir.setReturnValue(false);
-        } else if (function.apply(EmiExtensions.OpenRecipeBinding)) {
-            final var recipeLocation = recipe.getId();
-
-            if (recipeLocation != null) {
-                EmiExtensions.openRecipe(recipeLocation);
-                return;
-            }
-
-            cir.setReturnValue(true);
         }
     }
 }

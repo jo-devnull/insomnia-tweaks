@@ -5,21 +5,19 @@
   "compatibilityLevel": "JAVA_21",
   "refmap": "insomnia.refmap.json",
   "mixins": [
-    "emi.MixinEmiApi",
-    "emi.MixinEmiConfig",
-    "emi.MixinEmiPersistentData",
-    "emi.MixinEmiPort",
-    "emi.MixinEmiScreenManager",
-    "emi.MixinEmiSidebars",
-    "emi.MixinEmiSidebarType",
-    "emi.MixinScreenSpace",
     "incontrol.MixinGenericRuleEvaluator",
     "incontrol.MixinSpawnRule",
     "minecraft.MixinLivingEntity",
     "quests.FTBQuestsCommandsAccessor"
   ],
   "client": [
-    "emi.MixinConfigScreen"
+    "emi.MixinEmiApi",
+    "emi.MixinEmiPersistentData",
+    "emi.MixinEmiPort",
+    "emi.MixinEmiScreenManager",
+    "emi.MixinEmiSidebars",
+    "emi.MixinEmiSidebarType",
+    "emi.MixinScreenSpace"
   ],
   "injectors": {
     "defaultRequire": 1
