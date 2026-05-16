@@ -1,6 +1,7 @@
 package github.jodevnull.insomnia;
 
 import github.jodevnull.insomnia.cmds.MiscCommands;
+import github.jodevnull.insomnia.compat.FriendlyFire;
 import github.jodevnull.insomnia.event.PlayerEvents;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
@@ -29,6 +30,7 @@ public class Insomnia
     {
         PlayerEvents.register();
         NeoForge.EVENT_BUS.addListener(this::registerCommand);
+        NeoForge.EVENT_BUS.addListener(FriendlyFire::onEntityAttack);
     }
 
     private void registerCommand(RegisterCommandsEvent event) {
